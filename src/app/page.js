@@ -49,7 +49,7 @@ function HomeContent() {
             <p className={`text-lg transition-colors duration-300 ${
               theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
             }`}>
-              Let's work together on your next project
+              Let&apos;s work together on your next project
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
