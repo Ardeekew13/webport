@@ -1,7 +1,6 @@
 'use client';
 
 import React from "react";
-import Image from "next/image";
 import { useTheme } from './ThemeContext';
 
 const Portfolio = () => {
@@ -12,7 +11,7 @@ const Portfolio = () => {
       title: 'POS System Demo',
       description: 'Point of Sale system with inventory management and sales tracking',
       tech: ['Next.js', 'MongoDB', 'Ant Design'],
-      image: '/POS-demo.png',
+      image: '/pos-demo.png',
       link: 'https://pos-portfolio-demo.vercel.app'
     },
     {
@@ -46,13 +45,12 @@ const Portfolio = () => {
               }`}
             >
               <div className={`aspect-video relative overflow-hidden ${
-                theme === 'dark' ? 'bg-white/5' : 'bg-gray-100'
+                theme === 'dark' ? 'bg-black' : 'bg-gray-100'
               }`}>
-                <Image
+                <img
                   src={project.image}
                   alt={project.title}
-                  fill
-                  className="object-contain opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+                  className="w-full h-full object-contain opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
                 />
               </div>
               <div className="p-6">

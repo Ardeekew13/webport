@@ -5,7 +5,6 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath: '/webport',
-  assetPrefix: '/webport/',
 };
 
 export default nextConfig;

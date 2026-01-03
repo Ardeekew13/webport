@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { useTheme } from './ThemeContext';
 
 const About = () => {
@@ -22,12 +21,10 @@ const About = () => {
             <div className={`absolute inset-0 rounded-full transition-colors duration-300 ${
               theme === 'dark' ? 'bg-white/10' : 'bg-black/10'
             }`}></div>
-            <Image
-              src="/user.png"
+            <img
+              src={`${process.env.NODE_ENV === 'production' ? '/webport' : ''}user.png`}
               alt="Ron Derick Quilicot"
-              fill
-              className="object-contain rounded-full p-2"
-              priority
+              className="w-full h-full object-contain rounded-full p-2"
             />
           </div>
         </div>
