@@ -1,66 +1,78 @@
-import React from "react";
-import Image from "next/image";
-import profPic from "../../public/Prof1.png";
+'use client';
+
+import React from 'react';
+import Image from 'next/image';
+import { useTheme } from './ThemeContext';
+
 const About = () => {
+  const { theme } = useTheme();
+  
   return (
-    <section className="lg:h-full lg:mb-40 md:h-min relative md:mb-20"
-    >
-    <div className="  ">
-      <div className="flex lg:flex-row md:flex-col md:justify-center md:items-center md:mx-10 sm:flex-col sm:justify-center sm:items-center  ">
-        <div className=" relative lg:h-96 lg:w-72 md:h-64 md:w-64 lg:items-center lg:justify-center mt-10 ">
-          <Image
-            src={profPic}
-            alt="Cover Image"
-            layout="fill"
-            className="bg-img rounded-2xl"
-          />
-        </div>
-        <div className="flex flex-col  lg:ml-10 lg:mx-10    ">
-          <h1 className="text-4xl  text-[#BD3227] font-bold lg:text-left md:text-center sm:text-center lg:mt-2 lg:mb-2 md:my-6 ">About Me</h1>
-          <p className="lg:mt-3 md:justify-center md:items-center  text-[#EDEDED] lg:text-left md:text-center md:mx-auto  sm:text-left sm:mx-10  ">
-            Graduate of Information Technology from Holy Name University with a
-            passion for technology and innovation. <br />
-            My journey began with an internship at Pedicab, where I gained
-            practical experience. <br />
-            Since then, I&apos;ve been actively involved in freelancing, applying my
-            skills and creativity to various projects. <br />
-            Explore my portfolio to discover the intersection of my education,
-            internship, and freelance work in the dynamic world of IT.
-          </p>
-          <h1 className="text-4xl  text-[#BD3227] font-bold lg:text-left md:text-center sm:text-center lg:mt-2 md:my-6">
-            Career Goals
-          </h1>
-          <p className="lg:mt-3 md:justify-center md:items-center  text-[#EDEDED] lg:text-left md:text-center md:mx-auto  sm:text-left sm:mx-10">
-          Passionate Information Technology graduate dedicated to continuous
-          improvement. <br /> Committed to gaining hands-on experience,
-          expanding knowledge, and contributing to the success of
-          companies and clients. <br />Aspiring to not only meet but exceed
-          expectations, my goal is to create innovative solutions that
-          positively impact <br /> the ever-
-          evolving IT landscape. Explore my portfolio to see the
-          practical application of my skills
-          <br /> across diverse projects, showcasing adaptability and a drive
-          for excellence.
-          </p>
-        </div>
+    <section id="about" className={`py-20 px-6 border-t transition-colors duration-300 ${
+      theme === 'dark' ? 'border-white/10' : 'border-black/10'
+    }`}>
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-4xl md:text-6xl font-bold text-center mb-16 tracking-tight">
+          ABOUT
+        </h2>
         
-      </div>
-      <div className="flex flex-row  mt-20 lg:gap-20 md:gap-20 sm:gap-2 ml-5 justify-center mx-10 q  ">
-        <div className="flex-col text-center">
-          <h1 className="text-7xl text-[#BD3227]">1+</h1>
-          <p className="text-[#EDEDED] text-lg font-bold">
-            Years of Experience
-          </p>
+        {/* Profile Picture */}
+        <div className="flex justify-center mb-16">
+          <div className="relative w-48 h-48 md:w-64 md:h-64">
+            <div className={`absolute inset-0 rounded-full transition-colors duration-300 ${
+              theme === 'dark' ? 'bg-white/10' : 'bg-black/10'
+            }`}></div>
+            <Image
+              src="/user.png"
+              alt="Ron Derick Quilicot"
+              fill
+              className="object-contain rounded-full p-2"
+              priority
+            />
+          </div>
         </div>
-        <div className="flex-col text-center">
-          <h1 className="text-7xl text-[#BD3227]">2+</h1>
-          <p className="text-[#EDEDED] text-lg font-bold">Projects Completed</p>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className={`border p-8 transition-all duration-300 ${
+            theme === 'dark'
+              ? 'border-white/10 hover:bg-white/5'
+              : 'border-black/10 hover:bg-black/5'
+          }`}>
+            <div className="text-5xl mb-4">🎓</div>
+            <h3 className="text-xl font-bold mb-2">EDUCATION</h3>
+            <p className={`text-sm transition-colors duration-300 ${
+              theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+            }`}>
+              Information Technology graduate from Holy Name University
+            </p>
+          </div>
+          <div className={`border p-8 transition-all duration-300 ${
+            theme === 'dark'
+              ? 'border-white/10 hover:bg-white/5'
+              : 'border-black/10 hover:bg-black/5'
+          }`}>
+            <div className="text-5xl mb-4">💼</div>
+            <h3 className="text-xl font-bold mb-2">EXPERIENCE</h3>
+            <p className={`text-sm transition-colors duration-300 ${
+              theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+            }`}>
+              1+ years of freelancing and professional development
+            </p>
+          </div>
+          <div className={`border p-8 transition-all duration-300 ${
+            theme === 'dark'
+              ? 'border-white/10 hover:bg-white/5'
+              : 'border-black/10 hover:bg-black/5'
+          }`}>
+            <div className="text-5xl mb-4">🚀</div>
+            <h3 className="text-xl font-bold mb-2">PROJECTS</h3>
+            <p className={`text-sm transition-colors duration-300 ${
+              theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+            }`}>
+              2+ completed projects with satisfied clients
+            </p>
+          </div>
         </div>
-        <div className="flex-col text-center">
-          <h1 className="text-7xl text-[#BD3227]">2+</h1>
-          <p className="text-[#EDEDED] text-lg font-bold">Client Satisfied</p>
-        </div>
-      </div>
       </div>
     </section>
   );

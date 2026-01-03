@@ -1,46 +1,54 @@
-import React from "react";
-import Image from "next/image";
-import backgroundImage from "../../public/bg.png";
-import { Typewriter } from "nextjs-simple-typewriter";
-const HeroSection = () => {
-  return (
-    <section className="lg:h-screen md:h-96 sm:h-screen overflow-hidden relative bg-gray-900 ">
-    <div className="flex flex-col h-full relative ">
-        <Image
-          src={backgroundImage}
-          alt="Cover Image"
-          layout="fill"
-          SS
-          className="bg-img"
-        />
+'use client';
 
-        <div className="absolute inset-0 flex flex-col items-left text-left  lg:ml-32 lg:mt-36  md:mx-auto sm:mx-auto sm:p-7   ">
-          <p className="text-l md:block lg:hidden md:mx-auto md:mt-10 sm:text-center sm:mt-16 sm:text-xl ">
-            Hi, My name is
-          </p>
-          <h1 className="text-5xl font-extrabold md:text-6xl md:text-center lg:text-left sm:text-center sm:text-5xl">
-            Ron Derick Quilicot
+import React from 'react';
+import { useTheme } from './ThemeContext';
+
+const HeroSection = ({ scrollToSection }) => {
+  const { theme } = useTheme();
+  
+  return (
+    <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-6">
+      <div className="max-w-7xl mx-auto text-center">
+        <div className="space-y-6 animate-fadeIn">
+          <h1 className={`text-6xl md:text-8xl font-bold leading-tight tracking-tight transition-colors duration-300 ${
+            theme === 'dark' ? 'text-white' : 'text-black'
+          }`}>
+            RON DERICK<br/>QUILICOT
           </h1>
-          <h2 className="text-4xl text-secondary font-bold mb-2 md:text-center lg:text-left sm:text-center md:-text-5xl sm:text-3xl">
-            I am a
-            <Typewriter
-              words={[" Web Developer", " Mobile Developer", " Designer"]}
-              loop={false}
-              cursor
-              cursorStyle="_"
-              typeSpeed={90}
-              deleteSpeed={60}
-              delaySpeed={1000}
-            />
-          </h2>
-          <p className="text-xs lg:text-left sm:text-center md:text-center sm:text-base">
-            As a full stack developer and designer, I combine front-end and back-end expertise
-            <br/> with creative design skills. I prioritize problem-solving, attention to detail, and <br/>
-            innovation to deliver visually appealing and functional web applications for diverse<br/>
-            industries.
+          <div className={`h-px w-32 mx-auto transition-colors duration-300 ${
+            theme === 'dark' ? 'bg-white' : 'bg-black'
+          }`}></div>
+          <p className={`text-xl md:text-2xl font-light transition-colors duration-300 ${
+            theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+          }`}>
+            Full Stack Developer & Designer
           </p>
-          <div className="lg:h-11 lg:w-36 bg-[#D72029] items-center justify-center flex rounded-xl mt-5 md:mx-auto lg:ml-1 md:h-20 md:w-1/2 sm:mx-auto sm:h-16 sm:w-1/2">
-            <p className="text-[#D8D7D7] font-bold text-lg">See My Work</p>
+          <p className={`text-lg leading-relaxed max-w-2xl mx-auto transition-colors duration-300 ${
+            theme === 'dark' ? 'text-gray-500' : 'text-gray-500'
+          }`}>
+            I craft beautiful digital experiences with clean code and creative design.
+          </p>
+          <div className="flex gap-4 justify-center pt-8">
+            <button
+              onClick={() => scrollToSection('projects')}
+              className={`px-8 py-3 font-semibold transition-all duration-300 ${
+                theme === 'dark'
+                  ? 'bg-white text-black hover:bg-gray-200'
+                  : 'bg-black text-white hover:bg-gray-800'
+              }`}
+            >
+              VIEW WORK
+            </button>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className={`px-8 py-3 border-2 font-semibold transition-all duration-300 ${
+                theme === 'dark'
+                  ? 'border-white text-white hover:bg-white hover:text-black'
+                  : 'border-black text-black hover:bg-black hover:text-white'
+              }`}
+            >
+              CONTACT
+            </button>
           </div>
         </div>
       </div>
