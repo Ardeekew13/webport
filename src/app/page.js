@@ -92,7 +92,7 @@ function HomeContent() {
             </p>
             <div className="mt-10 flex flex-col md:flex-row gap-4 justify-center items-stretch max-w-xs md:max-w-none mx-auto">
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:rdquilicot.work@gmail.com"
                 className="px-8 py-3.5 bg-ball text-black font-bold tracking-wider hover:bg-ball-light transition-colors"
               >
                 EMAIL
@@ -106,7 +106,7 @@ function HomeContent() {
                 GITHUB
               </a>
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/rdquilicot"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3.5 border-2 border-current font-bold tracking-wider hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
