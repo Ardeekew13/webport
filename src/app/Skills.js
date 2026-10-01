@@ -2,121 +2,109 @@
 
 import React from "react";
 import { useTheme } from './ThemeContext';
-import { 
-  FaReact, 
-  FaHtml5, 
-  FaCss3Alt, 
-  FaJs, 
-  FaPhp, 
-  FaFigma 
+import Reveal from './Reveal';
+import SectionTitle from './SectionTitle';
+import {
+  FaReact,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaFigma
 } from 'react-icons/fa';
-import { 
-  SiNextdotjs, 
-  SiExpo, 
-  SiTailwindcss, 
-  SiAntdesign, 
-  SiMysql, 
-  SiMongodb, 
-  SiFirebase, 
-  SiGraphql, 
+import {
+  SiNextdotjs,
+  SiExpo,
+  SiTailwindcss,
+  SiAntdesign,
+  SiMysql,
+  SiMongodb,
+  SiFirebase,
+  SiGraphql,
   SiGooglemaps,
   SiAdobephotoshop,
-  SiAdobeillustrator
+  SiAdobeillustrator,
+  SiSpringboot,
+  SiApachegroovy,
+  SiPostgresql
 } from 'react-icons/si';
+
+const skillCategories = [
+  {
+    title: 'FRAMEWORK',
+    skills: [
+      { name: 'React JS', icon: FaReact, color: '#61DAFB' },
+      { name: 'React Native', icon: FaReact, color: '#61DAFB' },
+      { name: 'Next JS', icon: SiNextdotjs, color: '#000000' },
+      { name: 'Expo', icon: SiExpo, color: '#000020' }
+    ]
+  },
+  {
+    title: 'FRONT END',
+    skills: [
+      { name: 'HTML', icon: FaHtml5, color: '#E34F26' },
+      { name: 'CSS', icon: FaCss3Alt, color: '#1572B6' },
+      { name: 'JavaScript', icon: FaJs, color: '#F7DF1E' },
+      { name: 'Tailwind', icon: SiTailwindcss, color: '#06B6D4' },
+      { name: 'Ant Design', icon: SiAntdesign, color: '#0170FE' }
+    ]
+  },
+  {
+    title: 'BACK END',
+    skills: [
+      { name: 'Groovy', icon: SiApachegroovy, color: '#4298B8' },
+      { name: 'Spring Boot', icon: SiSpringboot, color: '#6DB33F' },
+      { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
+      { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
+      { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
+      { name: 'Firebase', icon: SiFirebase, color: '#FFCA28' },
+      { name: 'GraphQL', icon: SiGraphql, color: '#E10098' },
+      { name: 'Google Maps', icon: SiGooglemaps, color: '#4285F4' }
+    ]
+  },
+  {
+    title: 'DESIGN',
+    skills: [
+      { name: 'Figma', icon: FaFigma, color: '#F24E1E' },
+      { name: 'Photoshop', icon: SiAdobephotoshop, color: '#31A8FF' },
+      { name: 'Illustrator', icon: SiAdobeillustrator, color: '#FF9A00' }
+    ]
+  }
+];
 
 const Skills = () => {
   const { theme } = useTheme();
-  
-  const skillCategories = [
-    {
-      title: 'FRAMEWORK',
-      skills: [
-        { name: 'React JS', icon: FaReact, color: '#61DAFB' },
-        { name: 'React Native', icon: FaReact, color: '#61DAFB' },
-        { name: 'Next JS', icon: SiNextdotjs, color: '#000000' },
-        { name: 'Expo', icon: SiExpo, color: '#000020' }
-      ]
-    },
-    {
-      title: 'FRONT END',
-      skills: [
-        { name: 'HTML', icon: FaHtml5, color: '#E34F26' },
-        { name: 'CSS', icon: FaCss3Alt, color: '#1572B6' },
-        { name: 'JavaScript', icon: FaJs, color: '#F7DF1E' },
-        { name: 'Tailwind', icon: SiTailwindcss, color: '#06B6D4' },
-        { name: 'Ant Design', icon: SiAntdesign, color: '#0170FE' }
-      ]
-    },
-    {
-      title: 'BACK END',
-      skills: [
-        { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
-        { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
-        { name: 'PHP', icon: FaPhp, color: '#777BB4' },
-        { name: 'Firebase', icon: SiFirebase, color: '#FFCA28' },
-        { name: 'GraphQL', icon: SiGraphql, color: '#E10098' },
-        { name: 'Google Maps', icon: SiGooglemaps, color: '#4285F4' }
-      ]
-    },
-    {
-      title: 'DESIGN',
-      skills: [
-        { name: 'Figma', icon: FaFigma, color: '#F24E1E' },
-        { name: 'Photoshop', icon: SiAdobephotoshop, color: '#31A8FF' },
-        { name: 'Illustrator', icon: SiAdobeillustrator, color: '#FF9A00' }
-      ]
-    }
-  ];
 
   return (
-    <section id="skills" className={`py-20 px-6 border-t transition-colors duration-300 ${
-      theme === 'dark' ? 'border-white/10' : 'border-black/10'
-    }`}>
+    <section id="skills" className="py-24 px-6 border-t border-black/10 dark:border-white/10">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-6xl font-bold text-center mb-16 tracking-tight">
-          SKILLS
-        </h2>
-        <div className={`max-w-5xl mx-auto border p-8 md:p-12 transition-colors duration-300 ${
-          theme === 'dark' ? 'border-white/10' : 'border-black/10'
-        }`}>
-          <div className="space-y-12">
-            {skillCategories.map((category, catIndex) => (
-              <div key={catIndex}>
-                <h3 className={`text-sm font-bold mb-4 tracking-widest transition-colors duration-300 ${
-                  theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
-                }`}>
-                  {category.title}
-                </h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {category.skills.map((skill, skillIndex) => {
-                    const IconComponent = skill.icon;
-                    return (
-                      <div
-                        key={skillIndex}
-                        className={`group border p-4 transition-all duration-300 cursor-pointer ${
-                          theme === 'dark'
-                            ? 'border-white/10 hover:bg-white/5'
-                            : 'border-black/10 hover:bg-black/5'
-                        }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <IconComponent 
-                            className="w-8 h-8 flex-shrink-0 transition-all duration-300"
-                            style={{ 
-                              color: theme === 'dark' 
-                                ? (skill.color === '#000000' || skill.color === '#000020' ? '#FFFFFF' : skill.color)
-                                : skill.color 
-                            }}
-                          />
-                          <span className="text-sm font-semibold">{skill.name}</span>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
+        <SectionTitle kicker="04 · TOOLKIT" title="SKILLS" sub="Technologies and tools I work with." />
+        <div className="max-w-5xl mx-auto space-y-12">
+          {skillCategories.map((category) => (
+            <Reveal key={category.title}>
+              <div className="flex items-center gap-4 mb-5">
+                <h3 className="font-display text-3xl tracking-wider">{category.title}</h3>
+                <span className="flex-1 h-px bg-black/10 dark:bg-white/10" />
               </div>
-            ))}
-          </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {category.skills.map((skill) => {
+                  const IconComponent = skill.icon;
+                  const dark = skill.color === '#000000' || skill.color === '#000020';
+                  return (
+                    <div
+                      key={skill.name}
+                      className="group flex items-center gap-3 border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/[0.02] p-4 hover:border-ball/60 hover:-translate-y-0.5 transition-all"
+                    >
+                      <IconComponent
+                        className="w-7 h-7 flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+                        style={{ color: theme === 'dark' && dark ? '#FFFFFF' : skill.color }}
+                      />
+                      <span className="text-sm font-semibold">{skill.name}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

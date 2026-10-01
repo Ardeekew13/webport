@@ -14,39 +14,85 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+::selection {
+  background: #F26A1B;
+  color: #000;
+}
+
 @layer utilities {
   .animate-fadeIn {
-    animation: fadeIn 1s ease-out;
+    animation: fadeIn 0.9s ease-out both;
   }
+  .animate-spin-slow {
+    animation: spin 18s linear infinite;
+  }
+  .animate-orbit {
+    animation: spin 9s linear infinite;
+  }
+  .animate-dribble {
+    transform-origin: 50% 100%;
+    animation: dribble 0.9s infinite;
+  }
+  .animate-shadow {
+    animation: shadow 0.9s infinite;
+  }
+  .animate-marquee {
+    animation: marquee 35s linear infinite;
+  }
+  .text-outline {
+    -webkit-text-stroke: 2px currentColor;
+    color: transparent;
+  }
+}
 
-  .animate-pulse-slow {
-    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Squash on the floor, ease out going up, ease in coming down */
+@keyframes dribble {
+  0%   { transform: translateY(0) scale(1.14, 0.86); animation-timing-function: ease-out; }
+  12%  { transform: translateY(-4px) scale(1, 1); animation-timing-function: ease-out; }
+  55%  { transform: translateY(-30px) scale(1, 1); animation-timing-function: ease-in; }
+  100% { transform: translateY(0) scale(1.14, 0.86); }
+}
+
+@keyframes shadow {
+  0%, 100% { transform: scaleX(1); opacity: 0.45; animation-timing-function: ease-out; }
+  55% { transform: scaleX(0.5); opacity: 0.15; animation-timing-function: ease-in; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  50% {
-    opacity: 0.7;
-  }
+  .reveal { opacity: 1; transform: none; }
 }
